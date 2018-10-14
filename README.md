@@ -27,5 +27,7 @@ The program goes through the previously created files and counts the number of i
 The program proccess and merges the datasets created by the 'pictures_to_hdf5.py' into the final dataset. It crops the faces from the pictures, saves only those persons who has at least a predefined number of pictures. The pictures that fails the given blurry limit are not taken into account. To download the final data set click [here](https://drive.google.com/drive/folders/17J0BbO4FZ3EHOnPXdc-9_iJDYND8Hs8v?usp=sharing).
 #### data_preprocessor.py
 The program opens the dataset and preprocesses it. To run it you have to [download](https://drive.google.com/drive/folders/17J0BbO4FZ3EHOnPXdc-9_iJDYND8Hs8v?usp=sharing) the dataset in the same directory where this program is located.
+#### data_preprocessor.ipynb
+The jupyter notebook implementation of the 'data-preprocessor.ipynb'. There are extra cells to display the images in each set.  To run it you have to [download](https://drive.google.com/drive/folders/17J0BbO4FZ3EHOnPXdc-9_iJDYND8Hs8v?usp=sharing) the dataset in the same directory where this notebook is located.
 #### dataset_viewer.ipynb
 The notebook displays the pictures in the dataset.
