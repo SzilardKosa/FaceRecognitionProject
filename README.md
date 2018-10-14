@@ -28,4 +28,4 @@ The program proccess and merges the datasets created by the 'pictures_to_hdf5.py
 #### data_preprocessor.py
 The program opens the dataset and preprocesses it. To run it you have to [download](https://drive.google.com/drive/folders/17J0BbO4FZ3EHOnPXdc-9_iJDYND8Hs8v?usp=sharing) the dataset in the same directory where this program is located.
 #### dataset_viewer.ipynb
-The notebook can display the pictures in the dataset.
+The notebook displays the pictures in the dataset.
