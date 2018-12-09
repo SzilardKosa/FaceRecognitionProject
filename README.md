@@ -52,7 +52,6 @@ The program goes through the previously created files and counts the number of i
 The program process and merges the datasets created by the 'pictures_to_hdf5.py' into one dataset ('dataset_without_text.hdf5'). It filters out the pictures with text on them and saves only those persons who has at least a predefined number of pictures. It needs the 'frozen_east_text_detection.pb' file for the text detection.
 #### dataset_filter.py
 The program process the 'dataset_without_text.hdf5' file created by the 'dataset_text_remover.py' into the final dataset. It crops the faces from the pictures, saves only those persons who has at least a predefined number of pictures. The pictures that fails the given blurry limit are not taken into account. For the face alignment it imports the align.py program. For the face detection it needs the 'shape_predictor_68_face_landmarks.dat' file.
-To download the final data set click [here](https://drive.google.com/drive/folders/17J0BbO4FZ3EHOnPXdc-9_iJDYND8Hs8v?usp=sharing).
 #### dataset_viewer.ipynb
 The notebook displays the pictures in the dataset. The notebook loads the chosen dataset from the same directory where this program is located.
 
