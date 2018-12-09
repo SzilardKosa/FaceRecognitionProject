@@ -51,7 +51,7 @@ The program goes through the unzipped VGGFace2 dataset, scales down the pictures
 #### dataset_analizer.py
 The program goes through the previously created files and counts the number of images for each person. The number is determined from the number of labels. The result can be seen in Data_Analysis.xlsx .
 #### dataset_text_remover
-The program process and merges the datasets created by the 'pictures_to_hdf5.py' into one dataset ('dataset_without_text.hdf5'). It filters out the pictures with text on them and saves only those persons who has at least a predefined number of pictures. It needs the *'frozen_east_text_detection.pb'* file for the text detection.
+The program process and merges the datasets created by the 'pictures_to_hdf5.py' into one dataset ('dataset_without_text.hdf5'). It filters out the pictures with text on them. It needs the *'frozen_east_text_detection.pb'* file for the text detection.
 #### dataset_filter.py
 The program process the 'dataset_without_text.hdf5' file created by the 'dataset_text_remover.py' into the final dataset. It crops the faces from the pictures, saves only those persons who has at least a predefined number of pictures. The pictures that fails the given blurry limit are not taken into account. For the face alignment it imports the *align.py* program. For the face detection it needs the *'shape_predictor_68_face_landmarks.dat'* file.
 #### dataset_viewer.ipynb
