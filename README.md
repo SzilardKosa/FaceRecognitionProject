@@ -7,7 +7,7 @@
 
 Our goal is to implement [FaceNet](https://arxiv.org/abs/1503.03832) network in keras. 
 
-In our solution, the input of the network is a fixed size, grayscale picture of a person. The output is a 128 dimensional embedding on a unit hpersphere. The relation between two pictures can be determined from the distance of their embeddings. If two embeddings are close to each other that means the persons on the pictures look similar.
+In our solution, the input of the network is a fixed size, grayscale picture of a person. The output is a 128 dimensional embedding on a unit hypersphere. The relation between two pictures can be determined from the distance of their embeddings. If two embeddings are close to each other that means the persons on the pictures look similar.
 ![pic1](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2i21SzZWa41AQRl8W64vmcFJ6RknloSflSkN-DtYxtMAWoFSN)
 
 The optimization of the network is done by a triple loss function according to the [FaceNet](https://arxiv.org/abs/1503.03832) documentation. The triplets consists of three pictures, where the first two are from the same person and the third one is from a different person. We are using the [online triplet mining](https://omoindrot.github.io/triplet-loss) technique to create these triplets. Which means the training data consists of batches containing a defined amount of pictures for the defined number of people. The triplets are created only after their embeddings are calutated. 
@@ -16,7 +16,7 @@ The optimization of the network is done by a triple loss function according to t
 
 For test and validation data we use the VGGFace2 dataset. The downloaded images are processed so could be used as proper training images. The procession includes face detection, text removal, face alignment, blurrines and empty pixel filtering. For testing we use the Labeled Faces in the Wild (LFW) dataset. We process the test images in the same way as the training images.
 
-We visualize the training results with a UMap projection and a python application which recognizes people from a laptop's camera's live feed. The recogniton is being done with our trained model.
+We visualize the training results with a UMAP projection and a python application which recognizes people from a laptop's camera's live feed. The recogniton is being done with our trained model.
 
 ## Downloads for the programs
 All downloads can be find in the following drive folder: [download](https://drive.google.com/drive/folders/1BvybDG_vqE5Q6wxaai8FkZRRPhEUm780?usp=sharing)
