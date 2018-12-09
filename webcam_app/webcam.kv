@@ -1,0 +1,77 @@
+##########################################################################
+# Creators: Lajos Bodo, Szilard Kosa
+# Description: This program defines the graphical layout for the
+# 'webcam_app.py' application
+##########################################################################
+
+#:kivy 1.10.1
+
+<Base>:
+
+
+    canvas:
+        Color:
+            rgba: 236/255, 236/255, 236/255, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    Input_text:
+        id: input
+        center: 100, 140
+    Label:
+        size: 100, 20
+        text: "Name"
+        color: 0, 0, 0, 1
+        id: label
+        center: 100, 170
+    Label:
+        size: 100, 20
+        text: ""
+        color: 0, 0, 0, 1
+        id: record_label
+        center: 300, 170
+    Record:
+        id: record_button
+        center: 300, 140
+    Picture:
+        id: cam
+        center: 100, 200
+        size: 500, 500
+    ScrollView: 
+        center: 600, 300
+        size: 200, 300
+        GridLayout:
+            id: name_box
+            cols: 1
+            padding: 10
+            spacing: 15
+            size_hint_y: None
+            height: self.minimum_height
+            color: 0.8, 0.8, 0.8, 1
+    Label:
+        center: 600, 600
+        size: 200, 30
+        text: "recorded persons"
+        color: 0,0,0,1
+
+<Input_text>:
+    size: 150, 30 
+    multiline: False
+    text: "Enter name"
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.size   
+
+<Add>:
+    size: 100, 30
+    text: 'Add person'
+
+<Record>:
+    size: 120, 30
+    text: 'Start recording'
+
+
+
+  
