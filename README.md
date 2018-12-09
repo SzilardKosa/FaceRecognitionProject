@@ -20,16 +20,26 @@ We visualize the training results with a UMap projection and a python applicatio
 
 ## Downloads for the programs
 All downloads can be find in the following drive folder: [download](https://drive.google.com/drive/folders/1BvybDG_vqE5Q6wxaai8FkZRRPhEUm780?usp=sharing)
+
 'dataset.hdf5' 
+
 'dataset_lfw.hdf5' 
+
 LFW cropped (Zip) it could be also download from the 'http://conradsanderson.id.au/lfwcrop/' website
+
 'dataset_umap.hdf5'
+
 Our final model: 'weights_final.hdf5'
+
 'frozen_east_text_detection.pb'
+
 'shape_predictor_68_face_landmarks.dat'
+
 'align.py'
+
 'pairs.txt'
-'overlaps.txt'
+
+'overlap.txt'
 
 ## Short description of the programs
 
@@ -48,7 +58,7 @@ The notebook displays the pictures in the dataset. The notebook loads the chosen
 
 ### Programs to process the LFW dataset
 #### set_maker.py
-The program creates a HDF5 dataset ('dataset_lfw_set.hdf5') from the LFW dataset. The dataset's structure is defined by the pairs.txt file. The program also needs the overlaps.txt file to filter out the person who are also present in the VGGFace2 dataset. The program creates a text file, named 'set_index.txt', which contains info for each set's place in the dataset file. It is needed for the lfw_test.ipynb.
+The program creates a HDF5 dataset ('dataset_lfw_set.hdf5') from the LFW dataset. The dataset's structure is defined by the 'pairs.txt' file. The program also needs 'the overlap.txt' file to filter out the person who are also present in the VGGFace2 dataset. The program creates a text file, named 'set_index.txt', which contains info for each set's place in the dataset file. It is needed for the lfw_test.ipynb.
 There is no modification on the images.
 #### set_converter.py
 The program proccess the 'dataset_lfw_set.hdf5' created by the 'set_maker.py' into the final 'dataset_lfw.hdf5' dataset file. It aligns the faces from the pictures. When a picture could not be processed by the aligner, the picture is substituted with a previously cropped picture from the unzipped LFW Cropped dataset. For the face alignment it imports the align.py program. For the face detection it needs the 'shape_predictor_68_face_landmarks.dat' file.
