@@ -62,7 +62,7 @@ def text_detector(image, min_confidence, net, width, height):
 # Creating the HDF5 file.
 img_dtype = tables.UInt8Atom()
 data_shape = (0, 128, 128)
-hdf5_path = 'dataset.hdf5'
+hdf5_path = 'dataset_without_text.hdf5'
 hdf5_write = tables.open_file(hdf5_path, mode='w')
 storage = hdf5_write.create_earray(hdf5_write.root, 'images', img_dtype, shape=data_shape)
 
