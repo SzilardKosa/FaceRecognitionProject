@@ -41,6 +41,8 @@ Our final model: 'weights_final.hdf5'
 
 'overlap.txt'
 
+'set_index.txt'
+
 ## Short description of the programs
 
 ### Programs to process the VGGFace2 dataset
@@ -49,28 +51,28 @@ The program goes through the unzipped VGGFace2 dataset, scales down the pictures
 #### dataset_analizer.py
 The program goes through the previously created files and counts the number of images for each person. The number is determined from the number of labels. The result can be seen in Data_Analysis.xlsx .
 #### dataset_text_remover
-The program process and merges the datasets created by the 'pictures_to_hdf5.py' into one dataset ('dataset_without_text.hdf5'). It filters out the pictures with text on them and saves only those persons who has at least a predefined number of pictures. It needs the 'frozen_east_text_detection.pb' file for the text detection.
+The program process and merges the datasets created by the 'pictures_to_hdf5.py' into one dataset ('dataset_without_text.hdf5'). It filters out the pictures with text on them and saves only those persons who has at least a predefined number of pictures. It needs the *'frozen_east_text_detection.pb'* file for the text detection.
 #### dataset_filter.py
-The program process the 'dataset_without_text.hdf5' file created by the 'dataset_text_remover.py' into the final dataset. It crops the faces from the pictures, saves only those persons who has at least a predefined number of pictures. The pictures that fails the given blurry limit are not taken into account. For the face alignment it imports the align.py program. For the face detection it needs the 'shape_predictor_68_face_landmarks.dat' file.
+The program process the 'dataset_without_text.hdf5' file created by the 'dataset_text_remover.py' into the final dataset. It crops the faces from the pictures, saves only those persons who has at least a predefined number of pictures. The pictures that fails the given blurry limit are not taken into account. For the face alignment it imports the *align.py* program. For the face detection it needs the *'shape_predictor_68_face_landmarks.dat'* file.
 #### dataset_viewer.ipynb
 The notebook displays the pictures in the dataset. The notebook loads the chosen dataset from the same directory where this program is located.
 
 ### Programs to process the LFW dataset
 #### set_maker.py
-The program creates a HDF5 dataset ('dataset_lfw_set.hdf5') from the LFW dataset. The dataset's structure is defined by the 'pairs.txt' file. The program also needs 'the overlap.txt' file to filter out the person who are also present in the VGGFace2 dataset. The program creates a text file, named 'set_index.txt', which contains info for each set's place in the dataset file. It is needed for the lfw_test.ipynb.
+The program creates a HDF5 dataset ('dataset_lfw_set.hdf5') from the LFW dataset. The dataset's structure is defined by the *'pairs.txt'* file. The program also needs *'the overlap.txt'* file to filter out the person who are also present in the VGGFace2 dataset. The program creates a text file, named 'set_index.txt', which contains info for each set's place in the dataset file. It is needed for the lfw_test.ipynb.
 There is no modification on the images.
 #### set_converter.py
-The program proccess the 'dataset_lfw_set.hdf5' created by the 'set_maker.py' into the final 'dataset_lfw.hdf5' dataset file. It aligns the faces from the pictures. When a picture could not be processed by the aligner, the picture is substituted with a previously cropped picture from the unzipped LFW Cropped dataset. For the face alignment it imports the align.py program. For the face detection it needs the 'shape_predictor_68_face_landmarks.dat' file.
+The program proccess the 'dataset_lfw_set.hdf5' created by the 'set_maker.py' into the final 'dataset_lfw.hdf5' dataset file. It aligns the faces from the pictures. When a picture could not be processed by the aligner, the picture is substituted with a previously cropped picture from the unzipped LFW Cropped dataset. For the face alignment it imports the *align.py* program. For the face detection it needs the *'shape_predictor_68_face_landmarks.dat'* file.
 
 ### Programs for the training and testing
 #### trainer.ipynb
-The main program. It loads the 'dataset.hdf5' for the training and the 'dataset_umap.hdf5' for the visualization from the mounted drive. The model is defined in the notebook. Then it trains the model on the dataset and saves it to a specified location in the mounted drive.
+The main program. It loads the *'dataset.hdf5'* for the training and the *'dataset_umap.hdf5'* for the visualization from the mounted drive. The model is defined in the notebook. Then it trains the model on the dataset and saves it to a specified location in the mounted drive.
 #### lfw_test.ipynb
-This notebook is used to test our model's performance on the 'dataset_lfw.hdf5' test file. It loads the 'dataset_lfw.hdf5', the 'set_index.txt' and the chosen model from the mounted drive. The result shows the model's precision, recall and accuracy ratings. It also generates an ROC curve for the model and calculates the AUC value.
+This notebook is used to test our model's performance on the 'dataset_lfw.hdf5' test file. It loads the *'dataset_lfw.hdf5'*, the *'set_index.txt'* and the *chosen model* from the mounted drive. The result shows the model's precision, recall and accuracy ratings. It also generates an ROC curve for the model and calculates the AUC value.
 
 ### Programs for the web camera application
 #### webcam_app.py
-The main program for the web camera application. Run this to start the application. The program needs the 'webcam_test.py', the 'webcam.kv', the 'align.py', the 'shape_predictor_68_face_landmarks.dat' and the chosen model in the same directory. The kivy module also needed for the graphical interface.
+The main program for the web camera application. Run this to start the application. The program needs the *'webcam_test.py'*, the *'webcam.kv'*, the *'align.py'*, the *'shape_predictor_68_face_landmarks.dat'* and the *chosen model* in the same directory. The kivy module also needed for the graphical interface.
 
 How to use the application: After starting the application wait until the model is loaded (usually around 30 sec). Record a person pressing the 'start recording' button. Important: When recording only one person should be in the camera's field of view. Wait until at least 1 picture is recorded (The suggested number is 10, which is also the maximum), then press the same button (This time it reads 'Stop recording'). If the name of the person was different from any other recorded person then the recording is completed. After this the application writes out the recorded name  if it recognises someone on the person's frame. There is a predetermined threshold with the value of 0.7, if the calculated value from the model is smaller than the threshold the person is recognized.
 #### webcam_test.py
