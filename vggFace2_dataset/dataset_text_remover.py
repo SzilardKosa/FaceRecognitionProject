@@ -2,14 +2,17 @@
 # Creators: Lajos Bodo, Szilard Kosa
 # Description: The program process and merges the datasets created by the
 # 'pictures_to_hdf5.py' into one dataset.
-# It filters out the pictures with text on them and saves only those persons who
-# has at least a predefined number of pictures. 
+# It filters out the pictures with text on them.
 #################################################################################
 
 # This library let's us work with hdf5 format files.
 import tables
 # Used for image processing and face detection.
 import cv2
+
+# Import the necessary packages for face aligning
+import imutils
+import dlib
 
 def text_detector(image, min_confidence, net, width, height):
 	# grab the image dimensions
@@ -59,7 +62,7 @@ def text_detector(image, min_confidence, net, width, height):
 # Creating the HDF5 file.
 img_dtype = tables.UInt8Atom()
 data_shape = (0, 128, 128)
-hdf5_path = 'dataset_without_text.hdf5'
+hdf5_path = 'dataset.hdf5'
 hdf5_write = tables.open_file(hdf5_path, mode='w')
 storage = hdf5_write.create_earray(hdf5_write.root, 'images', img_dtype, shape=data_shape)
 
@@ -70,9 +73,9 @@ net = cv2.dnn.readNet("frozen_east_text_detection.pb")
 y_labels = []
 y_storage = []
 x_images = []
-# The predefined number of pictures for each person saved into the dataset.
-num_limit = 40
-num = 0
+# The threshold for the calculated blur values.
+blur_limit = 500
+blur = 0
 
 # The names of the datasets created from the VGGFace2 database.
 hdf5_paths = ['dataset_01.hdf5','dataset_02.hdf5','dataset_03.hdf5']
@@ -91,28 +94,20 @@ for hdf5_path in hdf5_paths:
 		print("Evaluation: %.3f %%"%(float(i)/float(data_num-1)*100),end="\r", flush=True)
 		# Evaluating the images of a person.
 		if label != prev_label:
-			if num == num_limit:
-				for im in x_images:
-					storage.append(im)
-				y_storage.extend(y_labels)
-			num = 0
+			for im in x_images:
+				storage.append(im)
+			y_storage.extend(y_labels)
 			y_labels = []
 			x_images = []
-		# If there are more pictures than the defined limit for a person, the following pictures are not evaluated.
-		if num < num_limit:
-			# Check text
-			color = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
-			if text_detector(color, 0.3, net, 128, 128) < 1:
-				x_images.append(image[None])
-				y_labels.append(label)
-				num += 1
+		# Check text
+		color = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
+		if text_detector(color, 0.3, net, 128, 128) < 1:
+			x_images.append(image[None])
+			y_labels.append(label)
 		prev_label = label
-	# Evaluating the last person.
-	if num == num_limit:
-		for im in x_images:
-			storage.append(im)
-		y_storage.extend(y_labels)
-	num = 0
+	for im in x_images:
+		storage.append(im)
+	y_storage.extend(y_labels)
 	y_labels = []
 	x_images = []
 	hdf5_read.close()

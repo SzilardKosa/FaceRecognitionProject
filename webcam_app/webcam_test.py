@@ -32,7 +32,7 @@ class WebcamTest():
         self.alignment = AlignDlib('shape_predictor_68_face_landmarks.dat')
         self.detector = dlib.get_frontal_face_detector()
         # Load the model
-        self.model = load_model('weights_semihard_02_dec05.hdf5', custom_objects={'triplet_loss': self.triplet_loss, 'tf': tf})
+        self.model = load_model('weights_final.hdf5', custom_objects={'triplet_loss': self.triplet_loss, 'tf': tf})
 
         # Get the web camera feed
         self.cap = cv2.VideoCapture(0)
