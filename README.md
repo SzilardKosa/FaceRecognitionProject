@@ -19,23 +19,17 @@ For test and validation data we use the VGGFace2 dataset. The downloaded images 
 We visualize the training results with a UMap projection and a python application which recognizes people from a laptop's camera's live feed. The recogniton is being done with our trained model.
 
 ## Downloads for the programs
-'dataset.hdf5' [download](https://drive.google.com/drive/folders/1BvybDG_vqE5Q6wxaai8FkZRRPhEUm780?usp=sharing)
-
-'dataset_lfw.hdf5' [download](https://drive.google.com/drive/folders/1BvybDG_vqE5Q6wxaai8FkZRRPhEUm780?usp=sharing)
-
-LFW cropped (Zip) [download](https://drive.google.com/drive/folders/1BvybDG_vqE5Q6wxaai8FkZRRPhEUm780?usp=sharing) or download from the 'http://conradsanderson.id.au/lfwcrop/' website
-
-'dataset_umap.hdf5' [download](https://drive.google.com/drive/folders/1BvybDG_vqE5Q6wxaai8FkZRRPhEUm780?usp=sharing)
-
-'frozen_east_text_detection.pb' [download](https://drive.google.com/drive/folders/1BvybDG_vqE5Q6wxaai8FkZRRPhEUm780?usp=sharing)
-
-'shape_predictor_68_face_landmarks.dat'[download](https://drive.google.com/drive/folders/1BvybDG_vqE5Q6wxaai8FkZRRPhEUm780?usp=sharing)
-
-'align.py' [download](https://drive.google.com/drive/folders/1BvybDG_vqE5Q6wxaai8FkZRRPhEUm780?usp=sharing)
-
-'pairs.txt' [download](https://drive.google.com/drive/folders/1BvybDG_vqE5Q6wxaai8FkZRRPhEUm780?usp=sharing)
-
-'overlaps.txt'[download](https://drive.google.com/drive/folders/1BvybDG_vqE5Q6wxaai8FkZRRPhEUm780?usp=sharing)
+All downloads can be find in the following drive folder: [download](https://drive.google.com/drive/folders/1BvybDG_vqE5Q6wxaai8FkZRRPhEUm780?usp=sharing)
+'dataset.hdf5' 
+'dataset_lfw.hdf5' 
+LFW cropped (Zip) it could be also download from the 'http://conradsanderson.id.au/lfwcrop/' website
+'dataset_umap.hdf5'
+Our final model: 'weights_final.hdf5'
+'frozen_east_text_detection.pb'
+'shape_predictor_68_face_landmarks.dat'
+'align.py'
+'pairs.txt'
+'overlaps.txt'
 
 ## Short description of the programs
 
