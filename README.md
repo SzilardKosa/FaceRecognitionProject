@@ -19,19 +19,23 @@ For test and validation data we use the VGGFace2 dataset. The downloaded images 
 We visualize the training results with a UMap projection and a python application which recognizes people from a laptop's camera's live feed. The recogniton is being done with our trained model.
 
 ## Downloads for the programs
-'dataset' [download](https://drive.google.com/drive/folders/1BvybDG_vqE5Q6wxaai8FkZRRPhEUm780?usp=sharing)
-'dataset_lfw' [download](https://drive.google.com/drive/folders/1BvybDG_vqE5Q6wxaai8FkZRRPhEUm780?usp=sharing)
-'shape_predictor_68_face_landmarks.dat'[download](https://drive.google.com/drive/folders
-LFW cropped (Zip) [download](https://drive.google.com/drive/folders/1BvybDG_vqE5Q6wxaai8FkZRRPhEUm780?usp=sharing)
-'shape_predictor_68_face_landmarks.dat'[download](https://drive.google.com/drive/folders or download from the 'http://conradsanderson.id.au/lfwcrop/' website
-UMap dataset
-'frozen_east_text_detection.pb' [download](https://drive.google.com/drive/folders/1BvybDG_vqE5Q6wxaai8FkZRRPhEUm780?usp=sharing)
-'shape_predictor_68_face_landmarks.dat'[download](https://drive.google.com/drive/folders/1BvybDG_vqE5Q6wxaai8FkZRRPhEUm780?usp=sharing)
-align.py [download](https://drive.google.com/drive/folders/1BvybDG_vqE5Q6wxaai8FkZRRPhEUm780?usp=sharing)
-pairs.txt [download](https://drive.google.com/drive/folders/1BvybDG_vqE5Q6wxaai8FkZRRPhEUm780?usp=sharing)
-overlaps.txt[download](https://drive.google.com/drive/folders/1BvybDG_vqE5Q6wxaai8FkZRRPhEUm780?usp=sharing)
+'dataset.hdf5' [download](https://drive.google.com/drive/folders/1BvybDG_vqE5Q6wxaai8FkZRRPhEUm780?usp=sharing)
 
-[download](https://drive.google.com/drive/folders/17J0BbO4FZ3EHOnPXdc-9_iJDYND8Hs8v?usp=sharing)
+'dataset_lfw.hdf5' [download](https://drive.google.com/drive/folders/1BvybDG_vqE5Q6wxaai8FkZRRPhEUm780?usp=sharing)
+
+LFW cropped (Zip) [download](https://drive.google.com/drive/folders/1BvybDG_vqE5Q6wxaai8FkZRRPhEUm780?usp=sharing) or download from the 'http://conradsanderson.id.au/lfwcrop/' website
+
+'dataset_umap.hdf5' [download](https://drive.google.com/drive/folders/1BvybDG_vqE5Q6wxaai8FkZRRPhEUm780?usp=sharing)
+
+'frozen_east_text_detection.pb' [download](https://drive.google.com/drive/folders/1BvybDG_vqE5Q6wxaai8FkZRRPhEUm780?usp=sharing)
+
+'shape_predictor_68_face_landmarks.dat'[download](https://drive.google.com/drive/folders/1BvybDG_vqE5Q6wxaai8FkZRRPhEUm780?usp=sharing)
+
+'align.py' [download](https://drive.google.com/drive/folders/1BvybDG_vqE5Q6wxaai8FkZRRPhEUm780?usp=sharing)
+
+'pairs.txt' [download](https://drive.google.com/drive/folders/1BvybDG_vqE5Q6wxaai8FkZRRPhEUm780?usp=sharing)
+
+'overlaps.txt'[download](https://drive.google.com/drive/folders/1BvybDG_vqE5Q6wxaai8FkZRRPhEUm780?usp=sharing)
 
 ## Short description of the programs
 
